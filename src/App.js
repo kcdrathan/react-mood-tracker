@@ -37,6 +37,7 @@ export default class App extends Component {
     this.state = {
       sessionId: document.cookie,
       timeline: [],
+      moods: ["1f601", "1f911", "1f62e_200d_1f4a8", "1f914", "1f97a", "1f60d"]
     };
   }
 
@@ -59,42 +60,14 @@ export default class App extends Component {
         <p>Click on an EMOJI to track your mood</p>
         <div className="emoji-list">
           <div className="emoji-container">
-            <img
+            {this.state.moods.map(mood => (
+              <img
               alt="emoji"
-              src={`https://emojiapi.dev/api/v1/1f601/32.webp`}
-              value="1f601"
-              onClick={(e) => this.handlechange(e, "1f601")}
+              src={`https://emojiapi.dev/api/v1/${mood}/32.webp`}
+              value={mood}
+              onClick={(e) => this.handlechange(e, mood)}
             />
-            <img
-              alt="emoji"
-              src={`https://emojiapi.dev/api/v1/1f911/32.webp`}
-              value="1f911"
-              onClick={(e) => this.handlechange(e, "1f911")}
-            />
-            <img
-              alt="emoji"
-              src={`https://emojiapi.dev/api/v1/1f62e_200d_1f4a8/32.webp`}
-              value="1f62e_200d_1f4a8"
-              onClick={(e) => this.handlechange(e, "1f1f62e_200d_1f4a8")}
-            />
-            <img
-              alt="emoji"
-              src={`https://emojiapi.dev/api/v1/1f914/32.webp`}
-              value="1f914"
-              onClick={(e) => this.handlechange(e, "1f914")}
-            />
-            <img
-              alt="emoji"
-              src={`https://emojiapi.dev/api/v1/1f97a/32.webp`}
-              value="1f97a"
-              onClick={(e) => this.handlechange(e, "1f97a")}
-            />
-            <img
-              alt="emoji"
-              src={`https://emojiapi.dev/api/v1/1f60d/32.webp`}
-              value="1f60d"
-              onClick={(e) => this.handlechange(e, "1f60d")}
-            />
+            ))}
           </div>
         </div>
         <CustomTimeline timeline={this.state.timeline} />
