@@ -37,6 +37,7 @@ export default class App extends Component {
     this.state = {
       sessionId: document.cookie,
       timeline: [],
+      moods: ["1f601", "1f911", "1f62e_200d_1f4a8", "1f914", "1f97a", "1f60d"],
     };
   }
 
@@ -51,15 +52,6 @@ export default class App extends Component {
   render() {
     const { timeline, sessionId } = this.state;
 
-    const mood = [
-      "1f601",
-      "1f911",
-      "1f62e_200d_1f4a8",
-      "1f914",
-      "1f97a",
-      "1f60d",
-    ];
-
     console.log(timeline);
 
     return (
@@ -67,15 +59,16 @@ export default class App extends Component {
         <h1 className="title">How are you feeling right now?</h1>
         <p className="sub-title">Click on an EMOJI to track your mood</p>
         <div className="emoji-list">
-          {mood.map((mod) => (
-            <div className="emoji">
+          <div className="emoji-container">
+            {this.state.moods.map((mood) => (
               <img
                 alt="emoji"
-                src={`https://emojiapi.dev/api/v1/${mood}/128.webp`}
+                src={`https://emojiapi.dev/api/v1/${mood}/32.webp`}
+                value={mood}
                 onClick={(e) => this.handlechange(e, mood)}
               />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         <CustomTimeline timeline={this.state.timeline} />
       </div>
