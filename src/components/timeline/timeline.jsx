@@ -11,6 +11,8 @@ import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
+import "./custom-timeline.scss";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: "10px 16px",
@@ -40,14 +42,11 @@ export default function CustomTimeline(props) {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Paper elevation={3} className={classes.paper}>
-                <Typography variant="h6" component="h1">
-                  <img
-                    alt="emoji"
-                    src={`https://emojiapi.dev/api/v1/${times.value}/128.webp`}
-                  />
-                </Typography>
-                <Typography>balh</Typography>
+              <Paper elevation={0} className={classes.paper}>
+                <img
+                  alt="emoji"
+                  src={`https://emojiapi.dev/api/v1/${times.value}/128.webp`}
+                />
               </Paper>
             </TimelineContent>
           </TimelineItem>
