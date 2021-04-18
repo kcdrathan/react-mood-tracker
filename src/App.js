@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Grid from "@material-ui/core/Grid";
 
 import CustomTimeline from "../src/components/timeline/timeline";
+
+import "./App.scss";
 
 // const redis = require("redis");
 // const redis_url =
@@ -56,21 +59,39 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <h1 className="title">How are you feeling right now?</h1>
-        <p className="sub-title">Click on an EMOJI to track your mood</p>
-        <div className="emoji-list">
-          <div className="emoji-container">
+        <div className="container1">
+          <h1 className="title">How are you feeling right now?</h1>
+          <p className="sub-title">Click on an EMOJI to track your mood</p>
+          <Grid
+            container
+            spacing={3}
+            className="emoji-list"
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
             {this.state.moods.map((mood) => (
-              <img
-                alt="emoji"
-                src={`https://emojiapi.dev/api/v1/${mood}/32.webp`}
-                value={mood}
-                onClick={(e) => this.handlechange(e, mood)}
-              />
+              <Grid
+                item
+                xs={3}
+                className="emoji"
+                container
+                justify="space-around"
+              >
+                <img
+                  alt="emoji"
+                  src={`https://emojiapi.dev/api/v1/${mood}/128.webp`}
+                  value={mood}
+                  onClick={(e) => this.handlechange(e, mood)}
+                />
+              </Grid>
             ))}
-          </div>
+          </Grid>
         </div>
-        <CustomTimeline timeline={this.state.timeline} />
+        <div className="container2">
+          <h1 className="title">Timeline</h1>
+          <CustomTimeline timeline={this.state.timeline} />
+        </div>
       </div>
     );
   }

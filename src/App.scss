@@ -1,0 +1,36 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  .container1 {
+    width: 60%;
+    position: fixed;
+    .title {
+      text-align: center;
+      margin-top: 0px;
+      padding-top: 50px;
+      font-size: 45px;
+    }
+
+    .sub-title {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .emoji-list {
+      align-items: center;
+      .emoji {
+        margin: 40px 40px;
+      }
+    }
+  }
+  .container2 {
+    width: 40%;
+    margin-left: auto;
+    .title {
+      text-align: center;
+      margin-top: 0px;
+      padding-top: 50px;
+      font-size: 45px;
+    }
+  }
+}
